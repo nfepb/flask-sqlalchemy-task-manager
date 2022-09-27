@@ -19,6 +19,6 @@ def add_category():
         # New instance of "Category" imported at top of file
         category = Category(category_name=request.form.get("category_name"))
         db.session.add(category)
-        de.session.commit()
+        db.session.commit()
         return redirect(url_for("categories"))
     return render_template("add_category.html")
