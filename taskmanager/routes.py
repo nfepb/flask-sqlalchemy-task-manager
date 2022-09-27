@@ -10,7 +10,10 @@ def home():
 
 @app.route("/categories")
 def categories():
-    return render_template("categories.html")
+    # Cursor object. Need to query the "Category" model imported
+    categories = list(Category.query.order_by(Category.category_name).all())
+    # 1st categories is variable now usable in html
+    return render_template("categories.html", categories=categories)
 
 
 @app.route("/add_category", methods=["GET", "POST"])
