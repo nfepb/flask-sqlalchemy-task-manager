@@ -14,9 +14,11 @@
         <i
           class="fa-solid fa-pen-to-square prefix light-blue-text text-darken-4"
         ></i>
+        <!-- Value param adds category value based on name -->
         <input
           id="category_name"
           name="category_name"
+          value=" {{ category.category_name }}"
           minlength="3"
           maxlength="25"
           type="text"
