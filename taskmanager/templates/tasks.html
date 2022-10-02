@@ -28,7 +28,22 @@
     <div class="collapsible-body">
       <strong>{{ task.category }}</strong>
       <p>{{ task.task_description }}</p>
+      <p>
+        <!-- Actions for editing and deleting task-->
+    <div class="card-action">
+      <a
+        href="{{ url_for('edit_task', task_id=task.id) }}"
+        class="btn green accent-4"
+        >Edit</a
+      >
+      <!-- Modal Trigger -->
+      <a href="#modal-{{ task.id }}" class="btn red modal-trigger"
+        >Delete</a
+      >    
+      </p>
     </div>
+  </div>
+</div>
   </li>
   {% endfor %}
 </ul>
