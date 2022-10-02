@@ -20,6 +20,8 @@
       <div class="card-content white-text">
         <span class="card-title">{{ category.category_name }}</span>
       </div>
+      <!-- Only allow owner of category to make amends as authentificated user -->
+      <!-- {% if category.owner == session.users %} -->
       <div class="card-action">
         <a
           href="{{ url_for('edit_category', category_id=category.id) }}"
@@ -30,6 +32,7 @@
         <a href="#modal-{{ category.id }}" class="btn red modal-trigger"
           >Delete</a
         >
+        <!-- {% endif %} -->
 
         <!-- Modal Structure -->
         <div id="modal-{{ category.id }}" class="modal">
