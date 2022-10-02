@@ -22,8 +22,7 @@ class Task(db.Model):
     task_name = db.Column(db.String(50), unique=True, nullable=False)
     task_description = db.Column(db.Text, nullable=False)
     is_urgent = db.Column(db.Boolean, default=False, nullable=False)
-    due_date = db.Column(db.DateTime, nullable=False)
-    task_owner = db.Column(db.String(25), nullable=False)
+    due_date = db.Column(db.Date, nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey(
         "category.id", ondelete="CASCADE"), nullable=False
         )
