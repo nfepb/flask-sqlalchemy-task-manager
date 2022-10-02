@@ -1,6 +1,7 @@
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 if os.path.exists("env.py"):
     import env
 
@@ -13,6 +14,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
 
 # create instance of imported SQLAlchemy class
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 # imported last because it will rely on app and db variables
 from taskmanager import routes  # noqa
